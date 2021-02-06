@@ -2,8 +2,9 @@ const inquirer = require('inquirer');
 const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
+const generateHTML = require("./src/pageTemplate");
 
-const teamData = []
+const teamInfo = []
 
 createEmployee = () => {
     inquirer.prompt([
@@ -38,11 +39,12 @@ createEmployee = () => {
                     message: "What is the Manager's office number?"
                 },
             ])
-                .then(data => {
-                    const employee = new Manager(data.name, data.id, data.email, data.officeNumber);
-                    teamData.push(employee);
+                .then((ManagerData) => {
+                    const { name, id, email, officeNumber } = ManagerData;
+                    const manager = new Manager(name, id, email, officeNumber);
+                    teamInfo.push(manager);
                     createEmployee();
-                })
+                });
         } else if (employeeChoice === 'Engineer') {
             inquirer.prompt([
                 {
@@ -66,9 +68,10 @@ createEmployee = () => {
                     message: "What is the Engineer's GitHub?"
                 }
             ])
-                .then(data => {
-                    const employee = new Engineer(data.name, data.id, data.email, data.github);
-                    teamData.push(employee);
+                .then((EngineerData) => {
+                    const { name, id, email, github } = EngineerData;
+                    const engineer = new Engineer(name, id, email, github);
+                    teamInfo.push(engineer);
                     createEmployee();
                 })
         } else if (employeeChoice === 'Intern') {
@@ -95,18 +98,22 @@ createEmployee = () => {
                     message: "What is the Intern's school?"
                 },
             ])
-                .then(data => {
-                    const employee = new Intern(data.name, data.id, data.email, data.school);
-                    teamData.push(employee);
+            .then((InternData) => {
+                const { name, id, email, school } = InternData;
+                const intern = new Intern(name, id, email, school);
+                teamInfo.push(intern);
                     createEmployee();
                 })
         }
         else {
             console.log("<~~~~~ Generating Page! ~~~~~>")
-            generatePage(teamData)
-            
+            createHTML(teamInfo)
         }
     });
 };
 
-createEmployee();
+createHTML = (teamInfo)  => {
+    generateHTML(teamInfo);
+};
+
+createEmployee()

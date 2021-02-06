@@ -1,0 +1,32 @@
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+.ul{
+    list-style-type:none;
+    right: 0;
+    position: relative;
+}
+h1,h4{
+    color: rgb(255, 255, 255);
+}
+h5{
+    display: inline;
+}
+li{
+    float: left;
+    margin: 20px;
+}
+.jumbotron{
+    background: rgb(221, 91, 91)
+}
+.cardbody{
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #999999;
+}
+
+.fa {
+    display: inline;
+}
+
