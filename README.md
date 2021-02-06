@@ -1,4 +1,4 @@
-# Team Profile Generator Generator
+# Team Profile Generator 
   ![badge](https://img.shields.io/badge/license-MIT-green.svg)
   ## Description
   A generator for any manager looking to list their employees in a clean, simple way.
@@ -14,6 +14,8 @@
   Clone the repo and install any dependencies with npm
   ## Usage
   Use node to run the application, enter your data and an HTML page will be created with your data. 
+  
+  For a help, please refrence this walkthrough video: [Guide](https://drive.google.com/file/d/1fGCzavNyUFuznBue-Gvy9JMiQ0SrHyum/view)
   ## License
   ![badge](https://img.shields.io/badge/license-MIT-green.svg)
 
